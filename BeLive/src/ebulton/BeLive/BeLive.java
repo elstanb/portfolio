@@ -14,7 +14,7 @@ import ebulton.BeLive.treatments.Treatment;
  * This class is created to help people who were
  * born into difficult environments and lack the resources
  * to live and recover from medical related injuries
- * that they face.
+ * that they face. 
  * This application will allow the user to select the
  * spot in the body where the injury is and provide the
  * user with the most convenient remedy for the user
