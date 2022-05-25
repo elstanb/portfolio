@@ -1,9 +1,13 @@
 package ebulton.BeLive;
 
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 import ebulton.BeLive.user.User;
-import ebultonBeLive.treatments.Database;
+import ebulton.BeLive.DataStructs.Dictionary;
+import ebulton.BeLive.treatments.Database;
+import ebulton.BeLive.treatments.Treatment;
 
 /**
  * (PROTOTYPE)
@@ -50,6 +54,9 @@ public class BeLive {
     /** The database for where the treatments will be */
     private Database database;
     
+    /** The dictionary to find all the treatments */
+    private Dictionary dictionary;
+    
     /**
      * ##TO-DO: Find a way so that the database does not have to be constructed
      * everytime the application is run and instead the data will be saved when 
@@ -69,6 +76,7 @@ public class BeLive {
      */
     public BeLive(User user, int bodyPart, int orientation, String injuryDescription, String symptoms){
         database = new Database("/files/treatments.txt");
+        dictionary = new Dictionary(database);
         setUser(user);
         setBodypart(bodyPart, orientation);
         setInjuryDescription(injuryDescription);
@@ -83,6 +91,7 @@ public class BeLive {
      */
     public BeLive(String firstName, String lastName) {
     	database = new Database("/files/treatments.txt");
+        dictionary = new Dictionary(database);
     	user = findUser(firstName, lastName);
     }
     
@@ -91,11 +100,9 @@ public class BeLive {
      * that needs treatment then the location of the user
      * @return an array containing the treatment that is available
      */
-    public String[][] findTreatment(){
+    public String[][] findTreatment(){    	
     	//The size of all the treatments
-    	int size = database.getTreatments().size();
-    	//The middle element in the sorted list of treatments
-    	int mid = database.getTreatments().get(size/2).getBodyPart();
+    	int size = dictionary.getAll(bodyPart).size();
     	
     	//Array of Strings containing the treatment
     	String[][] treatmentsWithNullCells = new String[size][5];
@@ -103,82 +110,35 @@ public class BeLive {
     	//Index in treatment array
     	int j = 0;
     	
-    	//Add Symptom checking
+    	//The linked list containing the treatments found
+    	LinkedList<Treatment> found = dictionary.get(bodyPart, orientation, symptoms, injuryDescription);
     	
-    	//Lower part of ArrayList
-        //Search based on bodypart 
-    	if(bodyPart < mid) {
-    		for(int i = 0; i < size/2; i++) {
-    			if(database.getTreatments().get(i).getBodyPart() == bodyPart) {
-    				//Search based on orientation
-    				if(orientation == 0 || database.getTreatments().get(i).getOrientation() == orientation) {
-    					//Search based on country (user.getCountry())
-        				if(database.getTreatments().get(i).getCountry().equalsIgnoreCase(user.getCountry())) {
-        					//Search based on user description of injury
-        					if(containUses(database.getTreatments().get(i).getUses())) {
-        						treatmentsWithNullCells[j][0] = database.getTreatments().get(i).getName();
-        						treatmentsWithNullCells[j][1] = database.getTreatments().get(i).getDescription();
-	        					treatmentsWithNullCells[j][2] = database.getTreatments().get(i).getUses();
-	        					treatmentsWithNullCells[j][3] = database.getTreatments().get(i).getLocation();
-	        					treatmentsWithNullCells[j][4] = database.getTreatments().get(i).getSymptoms();
-	        					j++;
-        					}
-        				}
-    				}
-    			}
+    	//GET BETTER IMPLEMENTATION OF MULTIPLE SYMPTOMS IN A COMMA SEPARATED LIST
+    	
+    	//As long is some treatments were found
+    	if(found != null) {
+    		Iterator<Treatment> it = found.iterator();
+	    	while(it.hasNext()) {
+	    		Treatment t = it.next();
+	    		treatmentsWithNullCells[j][0] = t.getName();
+	    		treatmentsWithNullCells[j][1] = t.getDescription();
+	    		treatmentsWithNullCells[j][2] = t.getUses();
+	    		treatmentsWithNullCells[j][3] = t.getLocation();
+	    		treatmentsWithNullCells[j][4] = t.getSymptoms();
+	    		j++;
 	    	}
     	}
-    	//Middle part of ArrayList
-        //Search based on bodypart 
-    	else if(bodyPart == mid) {
-    		for(int i = 0; i < size; i++) {
-    			if(database.getTreatments().get(i).getBodyPart() == bodyPart) {
-//    				System.out.println("Entered");
-    				//Search based on orientation
-    				if(orientation == 0 || database.getTreatments().get(i).getOrientation() == orientation) {
-//    					System.out.println("Entered");
-    					//Search based on country (user.getCountry())
-	    				if(database.getTreatments().get(i).getCountry().equalsIgnoreCase(user.getCountry())) {
-//	    					System.out.println("Entered");
-	    					//Search based on user description of injury
-	    					if(containUses(database.getTreatments().get(i).getUses())) {
-	    						treatmentsWithNullCells[j][0] = database.getTreatments().get(i).getName();
-        						treatmentsWithNullCells[j][1] = database.getTreatments().get(i).getDescription();
-	        					treatmentsWithNullCells[j][2] = database.getTreatments().get(i).getUses();
-	        					treatmentsWithNullCells[j][3] = database.getTreatments().get(i).getLocation();
-	        					treatmentsWithNullCells[j][4] = database.getTreatments().get(i).getSymptoms();
-	        					j++;
-        					}
-	    				}
-					}
-    			}
-    			//Break the loop in the sorted list when the element is above the bodypart we are searching for
-    			else if(database.getTreatments().get(i).getBodyPart() == bodyPart + 1) {
-    				size = 0;
-    			}
-    		}
-    	}
-    	//Upper part of ArrayList
-    	//Search based on bodypart
     	else {
-    		for(int i = size/2; i < size; i++) {
-    			if(database.getTreatments().get(i).getBodyPart() == bodyPart) {
-    				//Search based on orientation
-    				if(orientation == 0 || database.getTreatments().get(i).getOrientation() == orientation) {
-	    				//Search based on country (user.getCountry())
-	    				if(database.getTreatments().get(i).getCountry().equalsIgnoreCase(user.getCountry())) {
-	    					//Search based on user description of injury
-	    					if(containUses(database.getTreatments().get(i).getUses())) {
-	    						treatmentsWithNullCells[j][0] = database.getTreatments().get(i).getName();
-        						treatmentsWithNullCells[j][1] = database.getTreatments().get(i).getDescription();
-	        					treatmentsWithNullCells[j][2] = database.getTreatments().get(i).getUses();
-	        					treatmentsWithNullCells[j][3] = database.getTreatments().get(i).getLocation();
-	        					treatmentsWithNullCells[j][4] = database.getTreatments().get(i).getSymptoms();
-	        					j++;
-        					}
-	    				}
-    				}
-    			}
+    		found = dictionary.getAll(bodyPart);
+    		Iterator<Treatment> it = found.iterator();
+	    	while(it.hasNext()) {
+	    		Treatment t = it.next();
+	    		treatmentsWithNullCells[j][0] = t.getName();
+	    		treatmentsWithNullCells[j][1] = t.getDescription();
+	    		treatmentsWithNullCells[j][2] = t.getUses();
+	    		treatmentsWithNullCells[j][3] = t.getLocation();
+	    		treatmentsWithNullCells[j][4] = t.getSymptoms();
+	    		j++;
 	    	}
     	}
     	
@@ -194,25 +154,25 @@ public class BeLive {
 		return treatments;
     }
     
-    private boolean containUses(String databaseUses) {
-//    	System.out.println("Searching");
-		boolean contains = false;
-    	
-    	Scanner s = new Scanner(databaseUses);
-    	
-		s.useDelimiter(",");
-		
-		while(s.hasNext()) {
-			if(injuryDescription.contains(s.next())) {
-				contains =  true;
-				System.out.println("Found Treatment");
-			}
-		}
-		
-		s.close();
-		
-    	return contains;
-    }
+//    private boolean containUses(String databaseUses) {
+////    	System.out.println("Searching");
+//		boolean contains = false;
+//    	
+//    	Scanner s = new Scanner(databaseUses);
+//    	
+//		s.useDelimiter(",");
+//		
+//		while(s.hasNext()) {
+//			if(injuryDescription.contains(s.next())) {
+//				contains =  true;
+//				System.out.println("Found Treatment");
+//			}
+//		}
+//		
+//		s.close();
+//		
+//    	return contains;
+//    }
     
     /**
      * Searches the database for the returning user based on first name
@@ -309,12 +269,15 @@ public class BeLive {
 	 * Sets the body part that the user needs treatment for
 	 * @param bodyPart the bodyPart to set
 	 * @param orientation the orientation of the body part to set
-	 * @throws IllegalArgumentException if integer is below 1
-	 * or greater than 5
+	 * @throws IllegalArgumentException if body part is below 1
+	 * or greater than 5 or orientation is less than 0 or greater than 2
 	 */
 	public void setBodypart(int bodyPart, int orientation) {
 		if(bodyPart < 1 || bodyPart > 6) {
 			throw new IllegalArgumentException("Invalid input for body part.");
+		}
+		if(orientation < 0 || orientation > 2) {
+			throw new IllegalArgumentException("Invalid input for orientation.");
 		}
 		this.bodyPart = bodyPart;
 		this.orientation = orientation;
