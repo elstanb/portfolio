@@ -17,7 +17,7 @@ import ebulton.BeLive.treatments.Treatment;
  * that they face. 
  * This application will allow the user to select the
  * spot in the body where the injury is and provide the
- * user with the most convenient remedy for the user
+ * user with the most convenient remedy for the user 
  * that they will be able to find in their area.
  * This application may also include the ability to
  * photograph the injury if not within database and
