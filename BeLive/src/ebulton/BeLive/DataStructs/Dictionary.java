@@ -76,6 +76,22 @@ public class Dictionary {
 	}
 	
 	/**
+	 * Helper method that checks whether the full string contains any instance
+	 * of the list of substrings
+	 * @param fullString the string to check if it contains any substrings
+	 * @param sub list of substrings to see if they are within the full string
+	 * @return true if any sub string is found in the main string else false
+	 */
+	private boolean contains(String fullString, String[] sub) {
+		for(int i = 0; i < sub.length; i++) {
+			if(fullString.contains(sub[i])) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
 	 * Searches Linked List of treatments based on symptoms specified by the user O(mlogn)
 	 * @param bodypart the body part that the treatment is applied to
 	 * @param orientation the orientation of the treatment on the body
@@ -83,29 +99,32 @@ public class Dictionary {
 	 * @param uses the uses of the treatment
 	 * @return a linked list containing treatments that cures the specified orientation, symptoms, and uses
 	 */
-	public LinkedList<Treatment> get(int bodypart, int orientation, String symptom, String uses) {
+	public LinkedList<Treatment> get(int bodypart, int orientation, String[] symptoms, String[] uses) {
 		LinkedList<Treatment> treatments = dictionary.get(checkBodyPart(bodypart));
 		LinkedList<Treatment> newTreatments = new LinkedList<Treatment>();
 		Iterator<Treatment> it = treatments.iterator();
 		LinkedList<Treatment> ret = new LinkedList<Treatment>();
+		int counter = 0;
 		while(it.hasNext()) {																					//O(n)
 			Treatment t = it.next();																		//O(1)
+			newTreatments.addLast(t);
 			if(t.getOrientation() == orientation) {														//O(1)
-				if(t.getSymptoms().equalsIgnoreCase(symptom)) {										//O(1)
-					if(t.getUses().equalsIgnoreCase(uses)) {										//O(1)
+				if(contains(t.getSymptoms(), symptoms)) {										//O(1)
+					if(contains(t.getUses(), uses)) {										//O(1)
 						System.out.println("Found Treatment");
 						ret.add(t);																//O(1)
 						//Move To Front Heuristic when found to increase search efficiency
 						//Allows for most searched treatments to move to the front making get 
 						//NOTE: Can result in starvation of least searched treatments
-//						treatments.remove(counter);												//O(m)
-						newTreatments.addFirst(t);												//O(1)
+						newTreatments.remove(counter);												//O(m)
+						newTreatments.addFirst(t);												    //O(1)
 					}
 				}
 			}
+			counter++;																			//O(1)
 		}
 		if(ret.size() == 0) {
-			return null;
+			return treatments;
 		}
 		else {
 			dictionary.set(checkBodyPart(bodypart), newTreatments);

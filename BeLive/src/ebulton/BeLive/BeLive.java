@@ -39,7 +39,7 @@ public class BeLive {
     /** The user that will be using the BeLive application */
     private User user;
     
-    /** The body part where the injury is 1(Head\Neck) 2(Chest) 3(Arm) 5(Wrist/Hand) 4(Leg) 5(Foot/Ankle) */
+    /** The body part where the injury is 1(Head\Neck) 2(Chest) 3(Arm) 4(Wrist/Hand) 5(Leg) 6(Foot/Ankle) */
     private int bodyPart;
     
     /** The orientation of the body part where the injury is 0 for both 1 for front and 2 for back */
@@ -110,37 +110,25 @@ public class BeLive {
     	//Index in treatment array
     	int j = 0;
     	
+    	String[] symptomsArray = symptoms.split("[, ]+");						//Eventually remove commonly used words to make search easier
+    	String[] descriptionArray = injuryDescription.split("[, ]+");			//Eventually remove commonly used words to make search easier
+    	
     	//The linked list containing the treatments found
-    	LinkedList<Treatment> found = dictionary.get(bodyPart, orientation, symptoms, injuryDescription);
+    	LinkedList<Treatment> found = dictionary.get(bodyPart, orientation, symptomsArray, descriptionArray);
     	
     	//GET BETTER IMPLEMENTATION OF MULTIPLE SYMPTOMS IN A COMMA SEPARATED LIST
     	
     	//As long is some treatments were found
-    	if(found != null) {
-    		Iterator<Treatment> it = found.iterator();
-	    	while(it.hasNext()) {
-	    		Treatment t = it.next();
-	    		treatmentsWithNullCells[j][0] = t.getName();
-	    		treatmentsWithNullCells[j][1] = t.getDescription();
-	    		treatmentsWithNullCells[j][2] = t.getUses();
-	    		treatmentsWithNullCells[j][3] = t.getLocation();
-	    		treatmentsWithNullCells[j][4] = t.getSymptoms();
-	    		j++;
-	    	}
-    	}
-    	else {
-    		found = dictionary.getAll(bodyPart);
-    		Iterator<Treatment> it = found.iterator();
-	    	while(it.hasNext()) {
-	    		Treatment t = it.next();
-	    		treatmentsWithNullCells[j][0] = t.getName();
-	    		treatmentsWithNullCells[j][1] = t.getDescription();
-	    		treatmentsWithNullCells[j][2] = t.getUses();
-	    		treatmentsWithNullCells[j][3] = t.getLocation();
-	    		treatmentsWithNullCells[j][4] = t.getSymptoms();
-	    		j++;
-	    	}
-    	}
+    	Iterator<Treatment> it = found.iterator();
+		while(it.hasNext()) {
+			Treatment t = it.next();
+			treatmentsWithNullCells[j][0] = t.getName();
+			treatmentsWithNullCells[j][1] = t.getDescription();
+			treatmentsWithNullCells[j][2] = t.getUses();
+			treatmentsWithNullCells[j][3] = t.getLocation();
+			treatmentsWithNullCells[j][4] = t.getSymptoms();
+			j++;
+		}
     	
     	treatments = new String[j][5];
     	for(int i = 0; i < j; i++) {
