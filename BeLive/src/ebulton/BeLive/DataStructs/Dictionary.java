@@ -50,6 +50,7 @@ public class Dictionary {
 	 * @param t the treatment to add to the dictionary
 	 */
 	public void add(int bodypart, Treatment t) {
+		validate(t);
 		dictionary.get(checkBodyPart(bodypart)).addLast(t);
 	}
 	
@@ -84,7 +85,7 @@ public class Dictionary {
 	 */
 	private boolean contains(String fullString, String[] sub) {
 		for(int i = 0; i < sub.length; i++) {
-			if(fullString.contains(sub[i])) {
+			if(fullString.toLowerCase().contains(sub[i].toLowerCase())) {
 				return true;
 			}
 		}
@@ -136,7 +137,7 @@ public class Dictionary {
 	 * Ensures that the treatment is a treatment
 	 * @param t the treatment to validate
 	 */
-	public void validate(Treatment t) {
+	private void validate(Treatment t) {
 		if(!(t instanceof Treatment)) {
 			throw new IllegalArgumentException("Invalid Treatment.");
 		}
@@ -147,7 +148,7 @@ public class Dictionary {
 	 * @param bodypart the body part to check
 	 * @return the index of the body part in the dictionary
 	 */
-	public int checkBodyPart(int bodypart) {
+	private int checkBodyPart(int bodypart) {
 		int index = bodypart - 1;
 		if(index < 0 || index > 5) {
 			throw new IllegalArgumentException("Invalid Index.");
@@ -159,7 +160,7 @@ public class Dictionary {
 	 * Loads the database into the dictionary
 	 * @param d the database to load
 	 */
-	public void loadDatabase(Database d) {
+	private void loadDatabase(Database d) {
 		ArrayList<Treatment> treatments = d.getTreatments();
 		for(int i = 0; i < treatments.size(); i++) {
 			add(treatments.get(i).getBodyPart(), treatments.get(i));

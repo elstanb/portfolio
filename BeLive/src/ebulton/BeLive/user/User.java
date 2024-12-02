@@ -30,7 +30,16 @@ public class User{
     /** Whether or not the user is edited */
     private boolean edited;
     
-    
+    /**
+	 * Constuctor for user object
+	 * @param fName the user's first name
+	 * @param lName the user's last name
+	 * @param gender the user's gender Male = False Female = True
+	 * @param age the user's age
+	 * @param height the user's height
+	 * @param weight the user's weight
+	 * @param location the location where the user is
+	 */
     public User(String fName, String lName, boolean gender, int age, int height, int weight, String location){
         //Initialize all private fields
         this.setFirstName(fName);

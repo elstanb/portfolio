@@ -2,7 +2,7 @@ package ebulton.BeLive.treatments;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
+// import java.io.FileReader;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
@@ -29,7 +29,7 @@ public class Database {
     private ArrayList<User> users;
     
     /** The filename used to store the previous users */
-    private static String USERS_FILE = "files/users.txt";
+    private static String USERS_FILE = "C:\\Users\\Elstan\\.git\\portfolio\\BeLive\\files\\users.txt";
     
     /** THESE COUNTERS MAY NOT BE NEEDED BUT ARE ADDED JUST AS USEFUL DATA */
     /** Counter for Head/Neck related treatments */
@@ -59,79 +59,81 @@ public class Database {
     	readUsers();
     	treatments = new ArrayList<Treatment>();
     	
-//    	//Create reference to individual treatments
-//    	Treatment treatment;
-//    	
-//    	//String containing the entire file
-//    	String s = "";
-//    	
-//        //Create Scanner
-//    	Scanner fileReader;
-//    	
-//    	try {
-//			fileReader = new Scanner(new FileInputStream(fileName));
-//		} catch (FileNotFoundException e) {
-//			throw new IllegalArgumentException("Invalid database file.");
-//		}
-//    	
-//    	while(fileReader.hasNextLine()) {
-//    		try {
-//    			s += fileReader.nextLine() + "\n";
-//    		}
-//    		catch(Exception e) {
-//    			//Do nothing with exceptions
-//    		}
-//    	}
-//    	
-//    	Scanner lineReader = new Scanner(s);
-//    	lineReader.useDelimiter("\\n");
-//    	
-//    	while(lineReader.hasNext()) {
-//    		try {
-//    			treatment = processTreatments(lineReader.next());
-//    			treatments.add(treatment);
-//    		}
-//    		catch (Exception e) {
-//    			
-//    		}
-//    	}
+		//Create reference to individual treatments
+		Treatment treatment;
+		
+		//String containing the entire file
+		String s = "";
+		
+		//Create Scanner
+		Scanner fileReader;
+		
+		try {
+				fileReader = new Scanner(new FileInputStream(fileName));
+			} catch (FileNotFoundException e) {
+				throw new IllegalArgumentException("Invalid database file.");
+			}
+		
+		while(fileReader.hasNextLine()) {
+			try {
+				s += fileReader.nextLine() + "\n";
+			}
+			catch(Exception e) {
+				//Do nothing with exceptions
+			}
+		}
+		fileReader.close();
+
+		Scanner lineReader = new Scanner(s);
+		lineReader.useDelimiter("\\n");
+		
+		while(lineReader.hasNext()) {
+			try {
+				treatment = processTreatments(lineReader.next());
+				treatments.add(treatment);
+			}
+			catch (Exception e) {
+				
+			}
+		}
+		lineReader.close();
     	
-    	Treatment a = new Treatment("country1", "treatment1", "use1", "treatment1 description", "location1", "symptom1", 4, 0);
-    	Treatment b = new Treatment("country1", "treatment2", "use2", "treatment2 description", "location2", "symptom2", 4, 0);
-    	Treatment c = new Treatment("country1", "treatment3", "use3", "treatment3 description", "location3", "symptom3", 4, 0);
-    	Treatment d = new Treatment("country1", "treatment4", "use4", "treatment4 description", "location4", "symptom4", 4, 0);
-    	Treatment e = new Treatment("country1", "treatment5", "use5", "treatment5 description", "location5", "symptom5", 4, 0);
-    	Treatment f = new Treatment("country1", "treatment6", "use6", "treatment6 description", "location6", "symptom6", 4, 0);
-    	Treatment g = new Treatment("country1", "treatment7", "use7", "treatment7 description", "location7", "symptom7", 4, 0);
-    	Treatment h = new Treatment("country1", "treatment8", "use8", "treatment8 description", "location8", "symptom8", 4, 0);
-    	Treatment i = new Treatment("country1", "treatment9", "use9", "treatment9 description", "location9", "symptom9", 4, 0);
-    	Treatment j = new Treatment("country1", "treatment10", "use10", "treatment10 description", "location10", "symptom10", 4, 0);
-    	Treatment k = new Treatment("country1", "treatment11", "use11", "treatment11 description", "location11", "symptom11", 4, 0);
-    	Treatment l = new Treatment("country1", "treatment12", "use12", "treatment12 description", "location12", "symptom12", 4, 0);
-    	Treatment m = new Treatment("country1", "treatment13", "use13", "treatment13 description", "location13", "symptom13", 4, 0);
-    	Treatment n = new Treatment("country1", "treatment14", "use14", "treatment14 description", "location14", "symptom14", 4, 0);
-    	Treatment o = new Treatment("country1", "treatment15", "use15", "treatment15 description", "location15", "symptom15", 4, 0);
-    	Treatment p = new Treatment("country1", "treatment16", "use16", "treatment16 description", "location16", "symptom16", 4, 0);
-    	Treatment q = new Treatment("country1", "treatment17", "use17", "treatment17 description", "location17", "symptom17", 4, 0);
-    	Treatment r = new Treatment("country1", "treatment18", "use18", "treatment18 description", "location18", "symptom18", 4, 0);
-        treatments.add(a);
-        treatments.add(b);
-        treatments.add(c);
-        treatments.add(d);
-        treatments.add(e);
-        treatments.add(f);
-        treatments.add(g);
-        treatments.add(h);
-        treatments.add(i);
-        treatments.add(j);
-        treatments.add(k);
-        treatments.add(l);
-        treatments.add(m);
-        treatments.add(n);
-        treatments.add(o);
-        treatments.add(p);
-        treatments.add(q);
-        treatments.add(r);
+    	// Treatment a = new Treatment("country1", "treatment1", "use1", "treatment1 description", "location1", "symptom1", 4, 0);
+    	// Treatment b = new Treatment("country1", "treatment2", "use2", "treatment2 description", "location2", "symptom2", 4, 0);
+    	// Treatment c = new Treatment("country1", "treatment3", "use3", "treatment3 description", "location3", "symptom3", 4, 0);
+    	// Treatment d = new Treatment("country1", "treatment4", "use4", "treatment4 description", "location4", "symptom4", 4, 0);
+    	// Treatment e = new Treatment("country1", "treatment5", "use5", "treatment5 description", "location5", "symptom5", 4, 0);
+    	// Treatment f = new Treatment("country1", "treatment6", "use6", "treatment6 description", "location6", "symptom6", 4, 0);
+    	// Treatment g = new Treatment("country1", "treatment7", "use7", "treatment7 description", "location7", "symptom7", 4, 0);
+    	// Treatment h = new Treatment("country1", "treatment8", "use8", "treatment8 description", "location8", "symptom8", 4, 0);
+    	// Treatment i = new Treatment("country1", "treatment9", "use9", "treatment9 description", "location9", "symptom9", 4, 0);
+    	// Treatment j = new Treatment("country1", "treatment10", "use10", "treatment10 description", "location10", "symptom10", 4, 0);
+    	// Treatment k = new Treatment("country1", "treatment11", "use11", "treatment11 description", "location11", "symptom11", 4, 0);
+    	// Treatment l = new Treatment("country1", "treatment12", "use12", "treatment12 description", "location12", "symptom12", 4, 0);
+    	// Treatment m = new Treatment("country1", "treatment13", "use13", "treatment13 description", "location13", "symptom13", 4, 0);
+    	// Treatment n = new Treatment("country1", "treatment14", "use14", "treatment14 description", "location14", "symptom14", 4, 0);
+    	// Treatment o = new Treatment("country1", "treatment15", "use15", "treatment15 description", "location15", "symptom15", 4, 0);
+    	// Treatment p = new Treatment("country1", "treatment16", "use16", "treatment16 description", "location16", "symptom16", 4, 0);
+    	// Treatment q = new Treatment("country1", "treatment17", "use17", "treatment17 description", "location17", "symptom17", 4, 0);
+    	// Treatment r = new Treatment("country1", "treatment18", "use18", "treatment18 description", "location18", "symptom18", 4, 0);
+        // treatments.add(a);
+        // treatments.add(b);
+        // treatments.add(c);
+        // treatments.add(d);
+        // treatments.add(e);
+        // treatments.add(f);
+        // treatments.add(g);
+        // treatments.add(h);
+        // treatments.add(i);
+        // treatments.add(j);
+        // treatments.add(k);
+        // treatments.add(l);
+        // treatments.add(m);
+        // treatments.add(n);
+        // treatments.add(o);
+        // treatments.add(p);
+        // treatments.add(q);
+        // treatments.add(r);
     }
     
 	/**
@@ -232,24 +234,43 @@ public class Database {
 		
 		treatmentReader.useDelimiter(",");
 		
-		String country;
-		String name;
-		String uses;
-		String description;
-		String location;
-		String symptom;
-		int bodyPart;
-		int orientation;
+		String country = "";
+		String name = "";
+		String uses = "";
+		String description = "";
+		String location = "";
+		String symptom = "";
+		int bodyPart = 0;
+		int orientation = 0;
 		
 		try {
 			country = treatmentReader.next().trim();
 			name = treatmentReader.next().trim();
 			uses = treatmentReader.next().trim();
-			description = treatmentReader.next();
+			description = treatmentReader.next().substring(1);
 			location = treatmentReader.next().trim();
 			symptom = treatmentReader.next().trim();
-			bodyPart = treatmentReader.nextInt();
-			orientation = treatmentReader.nextInt();
+			bodyPart = Integer.parseInt(treatmentReader.next().trim());
+			if(bodyPart == 1){
+				counterPart1++;
+			}
+			else if(bodyPart == 2){
+				counterPart2++;
+			}
+			else if(bodyPart == 3){
+				counterPart3++;
+			}
+			else if(bodyPart == 4){
+				counterPart4++;
+			}
+			else if(bodyPart == 5){
+				counterPart5++;
+			}
+			else if(bodyPart == 6){
+				counterPart6++;
+			}
+			orientation = Integer.parseInt(treatmentReader.next().trim());
+			treatmentReader.close();
 		}
 		catch(NoSuchElementException e) {
 			throw new IllegalArgumentException("Invalid treatment.");
@@ -315,12 +336,12 @@ public class Database {
     		if(users.get(i).getFirstName().equals(user.getFirstName())
     				&& users.get(i).getLastName().equals(user.getLastName())
     				&& users.get(i).isGender() == user.isGender()
-    				&& ((users.get(i).getAge() != user.getAge()) 
+    						|| ((users.get(i).getAge() != user.getAge()) 
     						|| (users.get(i).getHeight() != user.getHeight()) 
     						|| (users.get(i).getWeight() != user.getWeight()))) {
     			users.remove(i);
     		}
-    		if(users.get(i).equals(user)) {
+    		else {
     			notEdited = true;
     		}
     	}

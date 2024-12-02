@@ -60,7 +60,7 @@ public class BeLiveGUI implements ActionListener, MouseMotionListener, MouseList
     
     private JPanel pnlDiagram;
     private JLabel lblDiagramInstructions;
-    private ImageIcon image = new ImageIcon("image/Diagram.gif");
+    private ImageIcon image = new ImageIcon("BeLive\\image\\Diagram.gif");
     private JLabel lblDiagram = new JLabel(image);
     private JLabel lblSelection;
     private JLabel lblSymptoms;

@@ -219,6 +219,33 @@ public class Treatment {
 	 private void setSymptoms(String symptoms) {
 		this.symptoms = symptoms;
 	}
-    
+
+    /**
+	 * Compares if the two treatments are equal to one another
+	 * @param t the Treatment to compare
+	 * @return true if equal otherwise false
+	 */
+	public boolean equals(Treatment t){
+		if(this.bodyPart == t.bodyPart){
+			if(this.country.equals(t.country)){
+				if(this.description.equals(t.description)) {
+					if(this.location.equals(t.location)){
+						if(this.name.equals(t.name)){
+							if(this.orientation == t.orientation){
+								if(this.symptoms.equals(t.symptoms)){
+									if(this.uses.equals(t.uses)){
+										return true;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return false;
+
+	}
+
 }
     

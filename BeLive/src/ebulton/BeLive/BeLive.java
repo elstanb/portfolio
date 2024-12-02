@@ -75,7 +75,7 @@ public class BeLive {
      * @param bodypart the bodypart that the user needs treatment for
      */
     public BeLive(User user, int bodyPart, int orientation, String injuryDescription, String symptoms){
-        database = new Database("/files/treatments.txt");
+        database = new Database("BeLive\\files\\treatments.txt");
         dictionary = new Dictionary(database);
         setUser(user);
         setBodypart(bodyPart, orientation);
@@ -90,7 +90,7 @@ public class BeLive {
      * @param firstName the first name of the returning user to find
      */
     public BeLive(String firstName, String lastName) {
-    	database = new Database("/files/treatments.txt");
+    	database = new Database("BeLive\\files\\treatments.txt");
         dictionary = new Dictionary(database);
     	user = findUser(firstName, lastName);
     }

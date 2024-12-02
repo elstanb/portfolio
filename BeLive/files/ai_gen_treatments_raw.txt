@@ -1,0 +1,48 @@
+Treatment, Ailment, How to treat, Where to find, Symptoms, Where on the body, Front or back
+Peppermint oil, Headache, Apply diluted oil to temples and massage, Health food stores or online, Head pain, sensitivity to light or sound, Head, N/A
+Ginger, Nausea, Chew on raw ginger or drink ginger tea, Grocery stores, Feeling of sickness or discomfort in stomach, Stomach, N/A
+Eucalyptus oil, Congestion, Inhale steam with a few drops of oil, Health food stores or online, Blocked or runny nose, difficulty breathing, Nose, chest, N/A
+Honey, Sore throat, Mix with warm water or tea, and gargle, Grocery stores, Pain or irritation in throat, Throat, N/A
+Aloe vera, Sunburn, Apply gel directly to affected skin, Plant (if fresh), or in health stores as gel, Redness, pain, heat sensation on skin, Skin (exposed to sun), N/A
+Chamomile tea, Insomnia, Drink tea before bedtime, Grocery stores or health food stores, Difficulty falling asleep or staying asleep, N/A, N/A
+Garlic, Cold, Consume raw or in meals, Grocery stores, Runny or stuffy nose, coughing, N/A, N/A
+Lavender oil, Stress or anxiety, Diffuse oil or apply to pulse points, Health food stores or online, Feelings of worry, tension, or nervousness, N/A, N/A
+Apple cider vinegar, Acid reflux, Mix with water and drink before meals, Grocery stores, Heartburn, regurgitation of acid into throat, N/A, N/A
+Tea tree oil, Acne, Apply diluted oil to affected skin, Health food stores or online, Pimples, blackheads, oily skin, Face, chest, back, N/A
+Chamomile, Digestive issues, Drink as tea after meals, Health food stores or online, Bloating, gas, indigestion, Stomach, N/A
+Turmeric, Inflammation, Use in cooking or take as a supplement, Grocery stores or health food stores, Swelling, pain, redness, N/A, N/A
+Arnica, Bruises, Apply gel or cream to affected area, Health food stores or online, Discoloration, tenderness, swelling, Skin (affected area), N/A
+Echinacea, Common cold, Take as directed to boost immune system, Health food stores or online, Runny nose, sore throat, coughing, N/A, N/A
+Oatmeal, Eczema, Apply colloidal oatmeal to skin or take oatmeal baths, Grocery stores, Itchy, dry, inflamed skin, Skin (affected area), N/A
+Valerian root, Anxiety, Take as directed for calming effects, Health food stores or online, Feelings of worry, nervousness, restlessness, N/A, N/A
+Probiotics, Digestive issues, Take supplements or consume fermented foods, Health food stores or online, Bloating, gas, irregular bowel movements, Digestive system, N/A
+Lemon balm, Cold sores, Apply diluted oil or cream to affected area, Health food stores or online, Painful blisters, tingling sensation, Lips, N/A
+Cranberry juice, Urinary tract infection (UTI), Drink unsweetened juice to help prevent or alleviate symptoms, Grocery stores, Painful urination, frequent urge to urinate, Urinary tract, N/A
+Peppermint tea, Indigestion, Drink tea after meals, Grocery stores or health food stores, Bloating, gas, discomfort in stomach, Stomach, N/A
+Coconut oil, Dry skin, Apply directly to skin as a moisturizer, Grocery stores, Flaky, rough, itchy skin, Skin (affected area), N/A
+St. John's wort, Mild depression, Take as directed for mood improvement, Health food stores or online, Feelings of sadness, low energy, loss of interest, N/A, N/A
+Witch hazel, Hemorrhoids, Apply to affected area with a cotton pad, Health food stores or online, Pain, itching, swelling around rectal area, Rectal area, N/A
+Licorice root, Sore throat, Drink licorice tea or use as gargle, Health food stores or online, Pain or irritation in throat, Throat, N/A
+Ginseng, Fatigue, Take as directed for energy boost, Health food stores or online, Persistent tiredness, lack of energy, N/A, N/A
+Cinnamon, Blood sugar control, Use in cooking or sprinkle on food, Grocery stores, High or low blood sugar levels, N/A, N/A
+Chamomile oil, Skin irritation, Apply diluted oil to affected area, Health food stores or online, Redness, itching, inflammation, Skin (affected area), N/A
+Fennel seeds, Gas and bloating, Chew seeds or drink fennel tea, Grocery stores or health food stores, Abdominal discomfort, bloating, N/A, N/A
+Ginger tea, Motion sickness, Drink tea before travel, Grocery stores or health food stores, Nausea, dizziness, vomiting, N/A, N/A
+Yogurt, Vaginal yeast infection, Consume plain yogurt to support vaginal health, Grocery stores, Itching, burning, unusual discharge, Vaginal area, N/A
+Nettle tea, Allergies, Drink tea to alleviate symptoms, Health food stores or online, Sneezing, itchy eyes, runny nose, N/A, N/A
+Olive oil, Ear wax buildup, Use a few drops to soften ear wax, Grocery stores, Reduced hearing, feeling of fullness in ear, Ear canal, N/A
+Garlic oil, Ear infections, Apply diluted oil drops to affected ear, Health food stores or online, Ear pain, fever, difficulty hearing, Ear, N/A
+Marshmallow root, Cough, Drink tea or take as directed to soothe throat, Health food stores or online, Persistent coughing, throat irritation, Throat, N/A
+Fish oil, Joint pain, Take as directed for anti-inflammatory effects, Health food stores or online, Joint stiffness, swelling, pain, Joints, N/A
+Catnip tea, Anxiety, Drink tea to promote relaxation, Health food stores or online, Feelings of tension, nervousness, restlessness, N/A, N/A
+Baking soda, Heartburn, Mix with water and drink to neutralize stomach acid, Grocery stores, Burning sensation in chest, regurgitation of acid into throat, N/A, N/A
+Sage tea, Excessive sweating, Drink tea to reduce sweating, Health food stores or online, Profuse sweating without physical exertion, N/A, N/A
+Cayenne pepper, Muscle pain, Mix with oil and apply to sore muscles, Grocery stores, Muscle soreness, stiffness, N/A, N/A
+Rosemary oil, Hair loss, Massage diluted oil into scalp, Health food stores or online, Thinning hair, bald patches, Scalp, N/A
+Green tea, Bad breath, Drink tea to help freshen breath, Grocery stores or health food stores, Unpleasant odor from mouth, N/A, N/A
+Oregano oil, Sinus infection, Inhale steam with a few drops of oil, Health food stores or online, Nasal congestion, facial pain or pressure, Sinuses, N/A
+Astragalus, Common cold prevention, Take as directed to boost immune system, Health food stores or online, Runny nose, sore throat, coughing, N/A, N/A
+Lemon water, Kidney stones, Drink to help prevent formation of stones, Grocery stores, Severe pain in side and back, pain while urinating, Kidneys, N/A
+Almond oil, Dark circles under eyes, Apply oil gently under eyes before bed, Grocery stores or health food stores, Dark, puffy circles under eyes, Eye area, N/A
+Ginger compress, Menstrual cramps, Apply warm ginger compress to lower abdomen, Health food stores or online, Painful menstrual periods, lower abdominal pain, Lower abdomen, N/A
+Hibiscus tea, High blood pressure, Drink tea regularly to help lower blood pressure, Health food stores or online, Headache, dizziness, chest pain, N/A, N/A

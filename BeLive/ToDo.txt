@@ -1,0 +1,6 @@
+1. Compile Scriptures
+2. Create Diagrams for treatments and application
+3. Figure out how to do location and where to find
+4. Webscraper iNaturalist
+5. AI Training Data
+6. Create AI 
