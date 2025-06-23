@@ -29,7 +29,7 @@ public class Database {
     private ArrayList<User> users;
     
     /** The filename used to store the previous users */
-    private static String USERS_FILE = "C:\\Users\\Elstan\\.git\\portfolio\\BeLive\\files\\users.txt";
+    private static String USERS_FILE = "C:\\iData\\Code\\portfolio\\BeLive\\files\\users.txt";
     
     /** THESE COUNTERS MAY NOT BE NEEDED BUT ARE ADDED JUST AS USEFUL DATA */
     /** Counter for Head/Neck related treatments */
